@@ -1,0 +1,16 @@
+<template>
+  <div class="attribution">This is a modification of a challenge by <a href="https://www.frontendmentor.io/challenges" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="https://www.github.com/nikkypyra" target="_blank">Nikky Pyra</a>.
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Attribution extends Vue {}
+</script>
+
+<style lang="scss">
+
+</style>

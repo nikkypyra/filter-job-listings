@@ -13,3 +13,8 @@ body {
   font-size: $fontSize15px;
   background-color: $colorBackground;
 }
+
+a {
+  color: $colorPrimary;
+  text-decoration: none;
+}
