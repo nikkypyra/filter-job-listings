@@ -16,6 +16,6 @@ export default class Attribution extends Vue {}
   color: $colorTertiary;
   text-align: center;
   font-size: .6em;
-  padding-bottom: 20px;
+  padding: 28px 0;
 }
 </style>
