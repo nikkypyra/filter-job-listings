@@ -46,6 +46,7 @@ featuredStatus: string = Status.featured
 
   .card {
     display: grid;
+    grid-template-columns: 116px auto;
     align-items: center;
     background-color: $colorWhite;
     margin: 20px;
@@ -78,7 +79,6 @@ featuredStatus: string = Status.featured
 
       .position {
         padding-top: 8px;
-        font-size: 1.1em;
         color: $colorSecondary;
         font-weight: $fontWeight700;
       }
@@ -87,6 +87,7 @@ featuredStatus: string = Status.featured
         display: flex;
         flex-direction: row;
         color: $colorTertiary;
+        font-size: .9em;
         padding-top: 8px;
 
         .postedAt {
