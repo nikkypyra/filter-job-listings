@@ -12,5 +12,10 @@ export default class Attribution extends Vue {}
 </script>
 
 <style lang="scss">
-
+.attribution {
+  color: $colorTertiary;
+  text-align: center;
+  font-size: .6em;
+  padding-bottom: 20px;
+}
 </style>

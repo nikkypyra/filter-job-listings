@@ -18,6 +18,7 @@ export default class StatusPill extends Vue {
   display: inline;
   color: $colorWhite;
   font-size: .7em;
+  font-weight: $fontWeight700;
   padding: 6px 8px 4px;
   border-radius: 20px;
 
