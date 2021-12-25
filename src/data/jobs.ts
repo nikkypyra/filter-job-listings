@@ -1,6 +1,6 @@
-import { Contract, Jobs, Language, Level, Location, Role, Tool } from "../types/jobs.types";
+import { Contract, Jobs, Language, Level, Location, Role, Tool } from '../types/jobs.types';
 
-export const JobList: Jobs =
+export const jobList: Jobs =
 [
     {
       id: 1,

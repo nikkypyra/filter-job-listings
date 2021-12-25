@@ -55,3 +55,8 @@ export interface Job {
   }
   
 export type Jobs = Job[] 
+
+export enum Status {
+  new = 'new!',
+  featured = 'featured'
+}
