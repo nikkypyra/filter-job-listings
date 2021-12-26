@@ -8,7 +8,7 @@ import { Status } from "../types/jobs.types";
 
 @Component
 export default class StatusPill extends Vue {
-  @Prop({ default: null }) status!: Status.new | Status.featured | null;
+  @Prop({ required: true }) status!: Status.new | Status.featured;
   @Prop({ default: "primary" }) color!: "primary" | "secondary";
 }
 </script>

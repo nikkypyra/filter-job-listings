@@ -18,9 +18,9 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class JobCards extends Vue {
-  @Prop({ default: null }) role!: Role;
-  @Prop({ default: null }) languages!: Language[];
-  @Prop({ default: null }) tools!: Tool[];
+  @Prop({ required: true }) role!: Role;
+  @Prop({ required: true }) languages!: Language[];
+  @Prop({ required: true }) tools!: Tool[];
 }
 </script>
 
