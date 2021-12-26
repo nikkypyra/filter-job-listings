@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Header extends Vue {}
@@ -14,10 +14,10 @@ export default class Header extends Vue {}
   width: 100%;
   height: 155px;
   background-color: $colorPrimary;
-  background-image: url('../assets/images/bg-header-mobile.svg');
+  background-image: url("../assets/images/bg-header-mobile.svg");
 
   @media only screen and (min-width: 400px) {
-  background-image: url('../assets/images/bg-header-desktop.svg');
-}
+    background-image: url("../assets/images/bg-header-desktop.svg");
+  }
 }
 </style>

@@ -1,15 +1,15 @@
 <template>
-  <span :class="['statusPill', color]">{{status.toUpperCase()}}</span>
+  <span :class="['statusPill', color]">{{ status.toUpperCase() }}</span>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import { Status } from '../types/jobs.types'
+import { Component, Vue, Prop } from "vue-property-decorator";
+import { Status } from "../types/jobs.types";
 
 @Component
 export default class StatusPill extends Vue {
-  @Prop({ default: null }) status!: Status.new | Status.featured | null
-  @Prop({ default: 'primary' }) color!: 'primary' | 'secondary'
+  @Prop({ default: null }) status!: Status.new | Status.featured | null;
+  @Prop({ default: "primary" }) color!: "primary" | "secondary";
 }
 </script>
 
@@ -17,7 +17,7 @@ export default class StatusPill extends Vue {
 .statusPill {
   display: inline;
   color: $colorWhite;
-  font-size: .7em;
+  font-size: 0.7em;
   font-weight: $fontWeight700;
   padding: 6px 8px 4px;
   border-radius: 20px;

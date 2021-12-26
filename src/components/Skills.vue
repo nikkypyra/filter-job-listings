@@ -1,20 +1,26 @@
 <template>
   <div class="skills">
-  <div><span class="skill">{{role}}</span></div>
-  <div v-for="language in languages" :key="language"><span class="skill">{{language}}</span></div>
-  <div v-for="tool in tools" :key="tool"><span class="skill">{{tool}}</span></div>
+    <div>
+      <span class="skill">{{ role }}</span>
+    </div>
+    <div v-for="language in languages" :key="language">
+      <span class="skill">{{ language }}</span>
+    </div>
+    <div v-for="tool in tools" :key="tool">
+      <span class="skill">{{ tool }}</span>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Role, Language, Tool } from '@/types/jobs.types';
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Role, Language, Tool } from "@/types/jobs.types";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class JobCards extends Vue {
-@Prop({ default: null }) role!: Role
-@Prop({ default: null }) languages!: Language[]
-@Prop({ default: null }) tools!: Tool[]
+  @Prop({ default: null }) role!: Role;
+  @Prop({ default: null }) languages!: Language[];
+  @Prop({ default: null }) tools!: Tool[];
 }
 </script>
 
@@ -30,7 +36,7 @@ export default class JobCards extends Vue {
     font-weight: 700;
     padding: 8px;
     margin-left: 8px;
-    border-radius: 4px;  
+    border-radius: 4px;
   }
 }
 </style>
