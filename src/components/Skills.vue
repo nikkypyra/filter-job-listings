@@ -35,7 +35,7 @@ export default class JobCards extends Vue {
 
   .skill {
     color: $colorPrimary;
-    background-color: $colorFilterTablets;
+    background-color: $colorQuaternary;
     font-size: 0.9em;
     font-weight: 700;
     padding: 8px;

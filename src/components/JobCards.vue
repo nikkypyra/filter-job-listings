@@ -1,7 +1,7 @@
 <template>
   <section class="cards">
     <JobCard
-      v-for="job in jobList"
+      v-for="job in jobs"
       :key="`${job.id}-${job.company}`"
       :job="job"
     />
@@ -10,8 +10,7 @@
 
 <script lang="ts">
 import { Jobs } from "@/types/jobs.types";
-import { Component, Vue } from "vue-property-decorator";
-import { jobList } from "../data/jobs";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import JobCard from "./JobCard.vue";
 
 @Component({
@@ -20,7 +19,7 @@ import JobCard from "./JobCard.vue";
   },
 })
 export default class JobCards extends Vue {
-  jobList: Jobs = jobList;
+  @Prop({ required: true }) jobs!: Jobs;
 }
 </script>
 
