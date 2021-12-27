@@ -1,5 +1,5 @@
 <template>
-  <span class="button">{{ label }}</span>
+  <button>{{label}}</button>
 </template>
 
 <script lang="ts">
@@ -12,12 +12,14 @@ export default class Button extends Vue {
 </script>
 
 <style lang="scss">
-.button {
+button {
   display: inline;
   color: $colorPrimary;
   background-color: $colorFilterTablets;
-  font-weight: $fontWeight700;
+  font-size: 1.1em;
+  font-weight: $fontWeight600;
   padding: 8px 12px 8px;
   border-radius: 20px;
+  border: none;
 }
 </style>

@@ -35,6 +35,7 @@
     <Skills
       :role="job.role"
       :languages="job.languages"
+      :level="job.level"
       :tools="job.tools"
       class="skills"
     />
@@ -67,8 +68,8 @@ export default class JobCards extends Vue {
   justify-content: space-between;
   align-items: center;
   background-color: $colorWhite;
-  margin: 20px;
-  padding: 16px 28px;
+  margin: 32px 0;
+  padding: 32px 28px;
   border-radius: 8px;
   box-shadow: 0px 16px 16px -4px $colorBoxShadow;
 
@@ -102,8 +103,9 @@ export default class JobCards extends Vue {
       }
 
       .position {
-        padding-top: 8px;
+        padding-top: 12px;
         color: $colorSecondary;
+        font-size: 1.1em;
         font-weight: $fontWeight700;
       }
 
@@ -111,8 +113,7 @@ export default class JobCards extends Vue {
         display: flex;
         flex-direction: row;
         color: $colorTertiary;
-        font-size: 0.9em;
-        padding-top: 8px;
+        padding-top: 12px;
 
         .postedAt {
           margin-right: 28px;

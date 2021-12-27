@@ -1,5 +1,7 @@
 <template>
-  <div class="header" />
+  <div class="header">
+    <h1>Job Filter</h1>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,6 +20,12 @@ export default class Header extends Vue {}
 
   @media only screen and (min-width: 400px) {
     background-image: url("../assets/images/bg-header-desktop.svg");
+  }
+
+  h1 {
+    color: $colorWhite;
+    text-align: center;
+    padding-top: 40px;
   }
 }
 </style>

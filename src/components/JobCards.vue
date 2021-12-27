@@ -26,7 +26,7 @@ export default class JobCards extends Vue {
 
 <style lang="scss">
 .cards {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: 100px auto;
 }
 </style>

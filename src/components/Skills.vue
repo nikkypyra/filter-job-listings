@@ -3,6 +3,9 @@
     <div>
       <span class="skill">{{ role }}</span>
     </div>
+    <div>
+      <span class="skill">{{ level }}</span>
+    </div>
     <div v-for="language in languages" :key="language">
       <span class="skill">{{ language }}</span>
     </div>
@@ -13,12 +16,13 @@
 </template>
 
 <script lang="ts">
-import { Role, Language, Tool } from "@/types/jobs.types";
+import { Role, Language, Level, Tool } from "@/types/jobs.types";
 import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class JobCards extends Vue {
   @Prop({ required: true }) role!: Role;
+  @Prop({ required: true }) level!: Level;
   @Prop({ required: true }) languages!: Language[];
   @Prop({ required: true }) tools!: Tool[];
 }
