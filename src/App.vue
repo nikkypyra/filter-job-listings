@@ -43,7 +43,7 @@ export default class App extends Vue {
 
   setJobs(): void {
     jobList.map((job) => {
-      const jobInfo: string[] = [job.role, job.level, ...job.languages, ...job.tools]
+      const jobInfo: string[] = [job.role, job.level, ...job.languages]
       if(this.selectedFilters.every((filter) => jobInfo.includes(filter))) {
         if(!this.selectedJobs.includes(job)) {
           this.jobs.push(job)

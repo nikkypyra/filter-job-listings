@@ -65,6 +65,7 @@ export default class JobCards extends Vue {
 .card {
   display: grid;
   grid-template-columns: auto auto;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
   background-color: $colorWhite;

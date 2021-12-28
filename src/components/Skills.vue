@@ -1,16 +1,7 @@
 <template>
-  <div class="skills">
-    <div>
-      <span class="skill">{{ role }}</span>
-    </div>
-    <div>
-      <span class="skill">{{ level }}</span>
-    </div>
-    <div v-for="language in languages" :key="language">
-      <span class="skill">{{ language }}</span>
-    </div>
-    <div v-for="tool in tools" :key="tool">
-      <span class="skill">{{ tool }}</span>
+  <div>
+    <div v-for="skill in skills" :key="skill" class="skills">
+      <span class="skill">{{ skill }}</span>
     </div>
   </div>
 </template>
@@ -25,13 +16,18 @@ export default class JobCards extends Vue {
   @Prop({ required: true }) level!: Level;
   @Prop({ required: true }) languages!: Language[];
   @Prop({ required: true }) tools!: Tool[];
+
+  get skills(): string[] {
+    return [this.role, this.level, ...this.languages, ...this.tools]
+  }
 }
 </script>
 
 <style lang="scss">
 .skills {
-  display: flex;
-  flex-direction: row;
+ display: flex;
+ justify-content: flex-end;
+ flex-wrap: wrap;
 
   .skill {
     color: $colorPrimary;
@@ -39,7 +35,7 @@ export default class JobCards extends Vue {
     font-size: 0.9em;
     font-weight: 700;
     padding: 8px;
-    margin-left: 8px;
+    margin: 8px;
     border-radius: 4px;
   }
 }
