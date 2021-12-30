@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { Role, Language, Level, Tool } from "@/types/jobs.types";
+import { Role, Language, Level } from "@/types/jobs.types";
 import Button from "./Button.vue";
 
 @Component({
@@ -40,7 +40,7 @@ export default class FilterButtons extends Vue {
  }
 
  variant(value: string) {
-   return this.filterIsSelected(value) ? 'primary' : 'secondary'
+   return this.filterIsSelected(value) ? 'secondary' : 'primary'
  }
 
  handleFilters(filter: string): void {
@@ -54,9 +54,9 @@ export default class FilterButtons extends Vue {
   display: grid;
   justify-content: center;
   background-color: $colorWhite;
-  max-width: 688px;
+  max-width: 400px;
   margin: -40px auto;
-  padding: 16px 28px;
+  padding: 8px;
   border-radius: 8px;
   box-shadow: 0px 16px 16px -4px $colorBoxShadow;
 
@@ -67,12 +67,19 @@ export default class FilterButtons extends Vue {
   }
 
   button {
-    margin: 6px;
+    margin: 8px;
 
     &:hover {
       background-color: $colorPrimary;
       color: $colorWhite;
+      cursor: pointer;
     }
   } 
+
+  @media only screen and (min-width: $desktop) {
+    justify-content: center;
+    max-width: 600px;
+    padding: 16px;
+  }
 }
 </style>

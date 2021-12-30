@@ -1,8 +1,8 @@
 <template>
   <div class="card">
-    <div class="cardLeft">
+    <div class="baseInfoWrapper">
       <img :src="require(`../assets/images/${job.logo}`)" :alt="job.company" />
-      <div class="info">
+      <div class="baseInfo">
         <div class="headline">
           <p class="company">{{ job.company }}</p>
           <StatusPill
@@ -18,6 +18,7 @@
             class="statusPill"
           />
         </div>
+        <div v-if="job.featured" class="featureHighlight"></div>
         <p class="position">{{ job.position }}</p>
         <div class="details">
           <p class="postedAt">{{ job.postedAt }}</p>
@@ -32,6 +33,7 @@
         </div>
       </div>
     </div>
+    <hr />
     <Skills
       :role="job.role"
       :languages="job.languages"
@@ -63,65 +65,128 @@ export default class JobCards extends Vue {
 
 <style lang="scss">
 .card {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 8px;
-  justify-content: space-between;
-  align-items: center;
   background-color: $colorWhite;
-  margin: 32px 0;
-  padding: 32px 28px;
   border-radius: 8px;
   box-shadow: 0px 16px 16px -4px $colorBoxShadow;
+  position: relative;
+  padding: 20px;
+  max-width: 400px;
 
-  .cardLeft {
-    display: grid;
+  img {
+    position: absolute;
+    width: 50px;
+    top: -25px;
+    left: 20px;
+  }
+
+  .company {
+    color: $colorPrimary;
+    font-size: 0.9em;
+    font-weight: $fontWeight700;
+    margin-top: 4px;
+    margin-right: 12px;
+  }
+
+  .headline {
+    display: flex;
     align-items: center;
-    grid-template-columns: 116px auto;
-    grid-column: 1;
+    margin-top: 12px;
 
-    img {
-      grid-column: 1;
+    .statusPill {
+      margin: 0 4px;
+    }
+  }
+
+  .position {
+    color: $colorSecondary;
+    font-size: 1.1em;
+    font-weight: $fontWeight700;
+    padding-top: 12px;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: row;
+    color: $colorTertiary;
+    font-size: 0.8em;
+    padding-top: 12px;
+
+    .postedAt {
+      margin-right: 20px;
     }
 
-    .info {
-      grid-column: 2;
+    ul {
+      display: flex;
 
-      .headline {
-        display: flex;
-        align-items: center;
+      li {
+        margin-right: 20px;
+      }
+    }
+  }
 
-        .company {
-          color: $colorPrimary;
-          font-size: 0.9em;
-          font-weight: $fontWeight700;
-          margin-right: 12px;
-        }
+  hr {
+    color: $colorSecondary;
+    margin: 16px 0 12px;
+  }
 
-        .statusPill {
-          margin: 4px;
-        }
+  .skills {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .skill:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .featureHighlight {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background-color: $colorPrimary;
+    border-radius: 8px 0 0 8px;
+}
+
+  @media only screen and (min-width: $desktop) {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 28px;
+    max-width: 1000px;
+    
+     .baseInfoWrapper {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 116px auto;
+      grid-column: 1;
+
+      img {
+        grid-column: 1;
+        position: relative;
+        max-width: 88px;
+        width: 100%;
+        top: unset;
+        left: unset;
       }
 
-      .position {
-        padding-top: 12px;
-        color: $colorSecondary;
-        font-size: 1.1em;
-        font-weight: $fontWeight700;
-      }
+      .baseInfo {
+        grid-column: 2;
 
-      .details {
-        display: flex;
-        flex-direction: row;
-        color: $colorTertiary;
-        padding-top: 12px;
-
-        .postedAt {
-          margin-right: 28px;
+        .headline {
+          margin-top: 0;
         }
 
-        ul {
-          display: flex;
+        .details {
+          padding-top: 12px;
+          font-size: 1em; 
+        
+          .postedAt {
+            margin-right: 28px;
+          }
 
           li {
             margin-right: 28px;
@@ -129,10 +194,15 @@ export default class JobCards extends Vue {
         }
       }
     }
-  }
 
-  .skills {
-    grid-column: 2;
-  }
+    hr {
+    display: none;
+    }
+
+    .skills {
+      justify-content: flex-end;
+      grid-column: 2;
+    }
+  } 
 }
 </style>

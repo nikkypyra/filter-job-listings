@@ -4,6 +4,7 @@
       v-for="job in jobs"
       :key="`${job.id}-${job.company}`"
       :job="job"
+      class="card"
     />
   </section>
 </template>
@@ -25,7 +26,14 @@ export default class JobCards extends Vue {
 
 <style lang="scss">
 .cards {
-  max-width: 1100px;
   margin: 100px auto;
+
+  .card {
+    margin: 48px auto;
+
+    @media only screen and (min-width: $desktop) {
+      margin: 28px auto;
+    }
+  }
 }
 </style>

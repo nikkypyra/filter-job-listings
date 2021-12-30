@@ -15,22 +15,20 @@ export default class Button extends Vue {
 <style lang="scss">
 .button {
   display: inline;
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: $fontWeight600;
-  padding: 8px 12px 8px;
-  border-radius: 20px;
+  padding: 8px;
+  border-radius: 4px;
   border: none;
 
   &.primary {
-    background-color: $colorPrimary;
-    color: $colorWhite;
-  }
-
-  &.secondary {
     background-color: $colorQuaternary;
     color: $colorPrimary;
   }
+
+  &.secondary {
+    background-color: $colorPrimary;
+    color: $colorWhite;
+  } 
 }
-
-
 </style>

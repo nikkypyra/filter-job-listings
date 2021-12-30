@@ -1,4 +1,5 @@
-# filter-job-listings
+# Job listings with filtering (responsive design)
+## Visit the app at [https://filter-job-listings.netlify.app/](https://filter-job-listings.netlify.app/)
 
 ## Project setup
 ```
