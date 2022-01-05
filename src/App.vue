@@ -7,7 +7,7 @@
       @clear-filters="clearFilters"
     />
     <JobCards :jobs="matchingJobs" />
-    <p v-if="noMatchingJobs" class="noMatch">
+    <p v-if="noMatchingJobs" :class="$style.noMatch">
       Sorry, no jobs match your search criteria.
     </p>
     <Attribution />
@@ -92,7 +92,7 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .noMatch {
   text-align: center;
   color: $colorSecondary;

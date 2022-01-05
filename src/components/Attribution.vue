@@ -1,5 +1,5 @@
 <template>
-  <div class="attribution">
+  <div :class="$style.attribution">
     This is a modification of a challenge by
     <a href="https://www.frontendmentor.io/challenges" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
     Coded by
@@ -14,11 +14,12 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Attribution extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .attribution {
   color: $colorTertiary;
   text-align: center;
   font-size: 0.6em;
+  line-height: 1.4em;
   padding: 28px 0;
 }
 </style>

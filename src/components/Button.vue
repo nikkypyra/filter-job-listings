@@ -1,5 +1,5 @@
 <template>
-  <button :class="['button', variant]" @click="$emit('click')">
+  <button :class="[$style.button, variant && $style[variant]]" @click="$emit('click')">
     {{ label }}
   </button>
 </template>
@@ -14,7 +14,7 @@ export default class Button extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .button {
   display: inline;
   font-size: 0.9em;

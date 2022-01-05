@@ -1,6 +1,6 @@
 <template>
-  <div class="filterContainer">
-    <div class="buttonGroup">
+  <div :class="$style.filterContainer">
+    <div :class="$style.buttonGroup">
       <Button
         v-for="role in roles"
         :key="role"
@@ -16,7 +16,7 @@
         :variant="variant(level)"
       />
     </div>
-    <div class="buttonGroup">
+    <div :class="$style.buttonGroup">
       <Button
         v-for="language in languages"
         :key="language"
@@ -25,7 +25,7 @@
         :variant="variant(language)"
       />
     </div>
-    <div v-if="hasSelectedFilters" class="buttonGroup">
+    <div v-if="hasSelectedFilters" :class="$style.buttonGroup">
       <Button @click="clearFilters" label="Clear" variant="tertiary" class="clear" />
     </div>
   </div>
@@ -78,7 +78,7 @@ export default class FilterButtons extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .filterContainer {
   display: grid;
   justify-content: center;

@@ -1,10 +1,10 @@
 <template>
-  <section class="cards">
+  <section :class="$style.cards">
     <JobCard
       v-for="job in jobs"
       :key="`${job.id}-${job.company}`"
       :job="job"
-      class="card"
+      :class="$style.card"
     />
   </section>
 </template>
@@ -24,7 +24,7 @@ export default class JobCards extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .cards {
   margin: 100px auto;
 

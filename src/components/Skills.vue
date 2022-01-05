@@ -26,7 +26,7 @@ export default class JobCards extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 button {
   margin: 4px;
 }

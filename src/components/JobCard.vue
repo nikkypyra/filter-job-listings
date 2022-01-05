@@ -1,27 +1,27 @@
 <template>
-  <div class="card">
-    <div class="baseInfoWrapper">
+  <div :class="$style.card">
+    <div :class="$style.baseInfoWrapper">
       <img :src="require(`../assets/images/${job.logo}`)" :alt="job.company" />
-      <div class="baseInfo">
-        <div class="headline">
-          <p class="company">{{ job.company }}</p>
+      <div :class="$style.baseInfo">
+        <div :class="$style.headline">
+          <p :class="$style.company">{{ job.company }}</p>
           <StatusPill
             v-if="job.new"
             color="primary"
             :status="newStatus"
-            class="statusPill"
+            :class="$style.statusPill"
           />
           <StatusPill
             v-if="job.featured"
             color="secondary"
             :status="featuredStatus"
-            class="statusPill"
+            :class="$style.statusPill"
           />
         </div>
-        <div v-if="job.featured" class="featureHighlight"></div>
-        <p class="position">{{ job.position }}</p>
-        <div class="details">
-          <p class="postedAt">{{ job.postedAt }}</p>
+        <div v-if="job.featured" :class="$style.featureHighlight"></div>
+        <p :class="$style.position">{{ job.position }}</p>
+        <div :class="$style.details">
+          <p :class="$style.postedAt">{{ job.postedAt }}</p>
           <ul>
             <li>
               <p>{{ job.contract }}</p>
@@ -39,7 +39,7 @@
       :languages="job.languages"
       :level="job.level"
       :tools="job.tools"
-      class="skills"
+      :class="$style.skills"
     />
   </div>
 </template>
@@ -63,7 +63,7 @@ export default class JobCards extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .card {
   background-color: $colorWhite;
   border-radius: 8px;

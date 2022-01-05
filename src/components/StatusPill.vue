@@ -1,5 +1,5 @@
 <template>
-  <span :class="['statusPill', color]">{{ status.toUpperCase() }}</span>
+  <span :class="[$style.statusPill, color && $style[color]]">{{ status.toUpperCase() }}</span>
 </template>
 
 <script lang="ts">
@@ -13,7 +13,7 @@ export default class StatusPill extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .statusPill {
   display: inline;
   color: $colorWhite;

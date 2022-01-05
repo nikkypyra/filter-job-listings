@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="$style.header">
     <h1>Job Filter</h1>
   </div>
 </template>
@@ -11,7 +11,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Header extends Vue {}
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 .header {
   width: 100%;
   height: 155px;
