@@ -24,7 +24,6 @@ export default class Header extends Vue {}
 
   h1 {
     color: $colorWhite;
-    font-size: 2.6em;
     text-align: center;
     padding-top: 40px;
   }

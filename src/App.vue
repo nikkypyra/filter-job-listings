@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <FilterButtons :filters="selectedFilters" @handle-filters="setFilters" />
-    <JobCards :jobs="selectedJobs"/>
+    <FilterButtons :filters="selectedFilters" @handle-filters="setSelectedFilters" />
+    <JobCards :jobs="matchingJobs"/>
     <p v-if="noMatchingJobs" class="noMatch">Sorry, no jobs match your search criteria.</p>
     <Attribution />
   </div>
@@ -33,37 +33,51 @@ export default class App extends Vue {
     return this.filters
   }
 
-  get selectedJobs(): Jobs {
-    return this.jobs.sort((a: Job, b: Job) => a.id - b.id)
+  get matchingJobs(): Jobs {
+    return this.sortJobsById()
   }
 
   get noMatchingJobs(): boolean {
-    return !this.selectedJobs.length
+    return !this.matchingJobs.length
   }
 
-  setJobs(): void {
+  sortJobsById(): Jobs {
+    return this.jobs.sort((a: Job, b: Job) => a.id - b.id)
+  }
+
+  jobMatchesAllFilterCriteria(jobInfo: string[]): boolean {
+    return this.selectedFilters.every((filter) => jobInfo.includes(filter))
+  }
+
+  matchingJobsIncludesJob(job: Job): boolean {
+    return this.matchingJobs.includes(job)
+  }
+
+  setMatchingJobs(): void {
     jobList.map((job) => {
       const jobInfo: string[] = [job.role, job.level, ...job.languages]
-      if(this.selectedFilters.every((filter) => jobInfo.includes(filter))) {
-        if(!this.selectedJobs.includes(job)) {
+      if (this.jobMatchesAllFilterCriteria(jobInfo)) {
+        if (!this.matchingJobsIncludesJob(job)) {
           this.jobs.push(job)
         }   
       } else {
-        if(this.selectedJobs.includes(job)) {
+        if (this.matchingJobsIncludesJob(job)) {
+          // remove job
           this.jobs = this.jobs.filter(item => item !== job)
         }
       }
     })
   }
 
-  setFilters(selectedFilter: string): void {
-    if(this.filters.includes(selectedFilter)) {
+  setSelectedFilters(selectedFilter: string): void {
+    if (this.filters.includes(selectedFilter)) {
+      // deselect filter
       this.filters = this.filters.filter(filter => filter !== selectedFilter);
     }
     else {
       this.filters = [...this.filters, selectedFilter]
     }
-    this.setJobs()
+    this.setMatchingJobs()
   }
 }
 </script>
