@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button v-for="skill in skills" :key="skill" :label="skill" />
+    <Button v-for="skill in skills" :key="skill" :label="skill" :clickable="false" />
   </div>
 </template>
 

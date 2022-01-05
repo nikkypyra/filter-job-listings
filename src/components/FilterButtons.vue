@@ -97,19 +97,6 @@ export default class FilterButtons extends Vue {
 
   button {
     margin: 8px;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $colorPrimary;
-      color: $colorWhite;
-    }
-
-    &.clear {
-      &:hover {
-        background-color: transparent;
-        color: $colorTertiary;
-      }
-    }
   }
 
   @media only screen and (min-width: $desktop) {

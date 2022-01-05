@@ -1,5 +1,5 @@
 <template>
-  <button :class="[$style.button, variant && $style[variant]]" @click="$emit('click')">
+  <button :class="[$style.button, variant && $style[variant], clickable && $style.clickable]" @click="$emit('click')">
     {{ label }}
   </button>
 </template>
@@ -11,6 +11,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class Button extends Vue {
   @Prop({ required: true }) label!: string;
   @Prop({ default: "primary" }) variant!: "primary" | "secondary" | "tertiary";
+  @Prop({ default: true }) clickable!: boolean;
 }
 </script>
 
@@ -36,6 +37,26 @@ export default class Button extends Vue {
   &.tertiary {
     background-color: transparent;
     color: $colorPrimary;
+  }
+}
+
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.primary {
+    &:hover {
+      background-color: $colorPrimary;
+      color: $colorWhite;
+    }
+  }
+
+  &.tertiary {
+    &:hover {
+      background-color: transparent;
+      color: $colorTertiary;
+    }
   }
 }
 </style>
