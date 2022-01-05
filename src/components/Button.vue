@@ -23,18 +23,9 @@ export default class Button extends Vue {
   border-radius: 4px;
   border: none;
 
-  &:hover {
-    cursor: pointer;
-  }
-
   &.primary {
     background-color: $colorQuaternary;
     color: $colorPrimary;
-
-    &:hover {
-      background-color: $colorPrimary;
-      color: $colorWhite;
-    }
   }
 
   &.secondary {
@@ -45,10 +36,6 @@ export default class Button extends Vue {
   &.tertiary {
     background-color: transparent;
     color: $colorPrimary;
-
-    &:hover {
-      color: $colorTertiary;
-    }
   }
 }
 </style>

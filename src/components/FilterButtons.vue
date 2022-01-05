@@ -26,7 +26,7 @@
       />
     </div>
     <div v-if="hasSelectedFilters" class="buttonGroup">
-      <Button @click="clearFilters" label="Clear" variant="tertiary" />
+      <Button @click="clearFilters" label="Clear" variant="tertiary" class="clear" />
     </div>
   </div>
 </template>
@@ -97,6 +97,19 @@ export default class FilterButtons extends Vue {
 
   button {
     margin: 8px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $colorPrimary;
+      color: $colorWhite;
+    }
+
+    &.clear {
+      &:hover {
+        background-color: transparent;
+        color: $colorTertiary;
+      }
+    }
   }
 
   @media only screen and (min-width: $desktop) {
