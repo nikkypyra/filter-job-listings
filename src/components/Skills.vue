@@ -11,7 +11,7 @@ import Button from "./Button.vue";
 
 @Component({
   components: {
-    Button
+    Button,
   },
 })
 export default class JobCards extends Vue {
@@ -21,13 +21,13 @@ export default class JobCards extends Vue {
   @Prop({ required: true }) tools!: Tool[];
 
   get skills(): string[] {
-    return [this.role, this.level, ...this.languages, ...this.tools]
+    return [this.role, this.level, ...this.languages, ...this.tools];
   }
 }
 </script>
 
 <style lang="scss">
-  button {
-    margin: 4px;
-  }
+button {
+  margin: 4px;
+}
 </style>

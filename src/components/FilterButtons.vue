@@ -1,11 +1,32 @@
 <template>
   <div class="filterContainer">
     <div class="buttonGroup">
-      <Button v-for="role in roles" :key="role" :label="role" @click="handleFilters(role)" :variant="variant(role)" />
-      <Button v-for="level in levels" :key="level" :label="level" @click="handleFilters(level)" :variant="variant(level)" />
+      <Button
+        v-for="role in roles"
+        :key="role"
+        :label="role"
+        @click="handleFilters(role)"
+        :variant="variant(role)"
+      />
+      <Button
+        v-for="level in levels"
+        :key="level"
+        :label="level"
+        @click="handleFilters(level)"
+        :variant="variant(level)"
+      />
     </div>
     <div class="buttonGroup">
-      <Button v-for="language in languages" :key="language" :label="language" @click="handleFilters(language)" :variant="variant(language)" />
+      <Button
+        v-for="language in languages"
+        :key="language"
+        :label="language"
+        @click="handleFilters(language)"
+        :variant="variant(language)"
+      />
+    </div>
+    <div v-if="hasSelectedFilters" class="buttonGroup">
+      <Button @click="clearFilters" label="Clear" variant="tertiary" />
     </div>
   </div>
 </template>
@@ -17,35 +38,43 @@ import Button from "./Button.vue";
 
 @Component({
   components: {
-    Button
+    Button,
   },
 })
 export default class FilterButtons extends Vue {
   @Prop({ required: true }) filters!: string[];
-  
- get roles(): Role[] {
-   return Object.values(Role).map((value) => value)
- }
 
- get levels(): Level[] {
-   return Object.values(Level).map((value) => value)
- }
+  get roles(): Role[] {
+    return Object.values(Role).map((value) => value);
+  }
 
- get languages(): Language[] {
-   return Object.values(Language).map((value) => value)
- }
+  get levels(): Level[] {
+    return Object.values(Level).map((value) => value);
+  }
 
- filterIsSelected(value: string): boolean {
-   return this.filters.includes(value)
- }
+  get languages(): Language[] {
+    return Object.values(Language).map((value) => value);
+  }
 
- variant(value: string) {
-   return this.filterIsSelected(value) ? 'secondary' : 'primary'
- }
+  get hasSelectedFilters(): boolean {
+    return Boolean(this.filters.length);
+  }
 
- handleFilters(filter: string): void {
-   this.$emit('handle-filters', filter)
- }
+  filterIsSelected(value: string): boolean {
+    return this.filters.includes(value);
+  }
+
+  variant(value: string) {
+    return this.filterIsSelected(value) ? "secondary" : "primary";
+  }
+
+  handleFilters(filter: string): void {
+    this.$emit("handle-filters", filter);
+  }
+
+  clearFilters(): void {
+    this.$emit("clear-filters");
+  }
 }
 </script>
 
@@ -68,13 +97,7 @@ export default class FilterButtons extends Vue {
 
   button {
     margin: 8px;
-
-    &:hover {
-      background-color: $colorPrimary;
-      color: $colorWhite;
-      cursor: pointer;
-    }
-  } 
+  }
 
   @media only screen and (min-width: $desktop) {
     justify-content: center;

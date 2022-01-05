@@ -147,7 +147,7 @@ export default class JobCards extends Vue {
     height: 100%;
     background-color: $colorPrimary;
     border-radius: 8px 0 0 8px;
-}
+  }
 
   @media only screen and (min-width: $desktop) {
     display: grid;
@@ -157,8 +157,8 @@ export default class JobCards extends Vue {
     align-items: center;
     padding: 32px 28px;
     max-width: 1000px;
-    
-     .baseInfoWrapper {
+
+    .baseInfoWrapper {
       display: grid;
       align-items: center;
       grid-template-columns: 116px auto;
@@ -182,8 +182,8 @@ export default class JobCards extends Vue {
 
         .details {
           padding-top: 12px;
-          font-size: 1em; 
-        
+          font-size: 1em;
+
           .postedAt {
             margin-right: 28px;
           }
@@ -196,13 +196,13 @@ export default class JobCards extends Vue {
     }
 
     hr {
-    display: none;
+      display: none;
     }
 
     .skills {
       justify-content: flex-end;
       grid-column: 2;
     }
-  } 
+  }
 }
 </style>

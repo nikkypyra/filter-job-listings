@@ -1,8 +1,9 @@
 <template>
   <div class="attribution">
     This is a modification of a challenge by
-    <a href="https://www.frontendmentor.io/challenges" target="_blank">Frontend Mentor</a>. Coded by
-    <a href="https://www.github.com/nikkypyra" target="_blank">Nikky Pyra</a>.
+    <a href="https://www.frontendmentor.io/challenges" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+    Coded by
+    <a href="https://www.github.com/nikkypyra" target="_blank" rel="noopener noreferrer">Nikky Pyra</a>.
   </div>
 </template>
 
